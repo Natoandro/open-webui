@@ -312,7 +312,7 @@ async def update_knowledge_by_id(
 
         return KnowledgeFilesResponse(
             **knowledge.model_dump(),
-            files=files,
+            files=[file.model_dump() for file in files],
         )
     else:
         raise HTTPException(
